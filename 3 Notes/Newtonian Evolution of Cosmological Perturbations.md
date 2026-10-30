@@ -69,7 +69,7 @@ $$
 \nabla^{2}_{\underline{x}}\Phi{}[\underline{x},r]=4\pi{} G \bar{\rho{}}a^{2}\delta{}[\underline{x},t]}
 \end{align}
 $$
-- using $\rho{}_{c}=3H^{2}/8\pi{}G$ poisson is often written as $\nabla^{2}_{\underline{x}}\Phi{}=\frac{3}{2}\Omega{}_{m}(t)H^{2}(t)a^{2}\delta{}$
+- using $\rho{}_{c}=3H^{2}/8\pi{}G$ poisson is often written as $\nabla^{2}_{\underline{x}}\Phi{}=\frac{3}{2}\Omega{}_{M}[t]H^{2}[t]a^{2}\delta{}$
 ---
 - we can combine these equations to find
 $$

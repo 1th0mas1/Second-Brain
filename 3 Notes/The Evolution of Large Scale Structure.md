@@ -32,7 +32,7 @@ $$
 - we note that $c_{s}^{2}\sim k_{B}T/m{}$ we can thus rewrite Jeans length $\lambda{}_{J} = \sqrt{ \pi{}k_{B}T/(Gm\bar{\rho{}}) }{}$
 	- clear that a system that is hot and/or made up of light particles has large $\lambda{}_{J}{}$ and vice versa
 - universe passes radiation $\to{}$ matter $\to{}$ $\Lambda$ domination
-	- radiation-matter equality at $a\sim{}1/3000$, $\Omega{}_{\Lambda{}}\approx{}0.7$ today
+	- radiation-matter equality at $a\sim{}1/3000$, $\Omega{}_{V,0}\approx{}0.7$
 	- full evolution needs numerics - here solve each regime analytically in isolation
 - we will apply perturbations to matter density for structures so $\bar{\rho{}}\to{} \bar{\rho{}}_{M}{}$
 ---

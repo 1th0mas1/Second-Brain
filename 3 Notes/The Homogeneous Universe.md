@@ -15,8 +15,8 @@ up: [[Astrophysics.base]]
 - static homogeneous isotropic newtonian universe is not self-consistent
 	- it would collapse under its own gravity
 	- universe must be dynamic - expanding or contracting
-- newtonian route: write physical position $\underline{r}(t)=a(t)\underline{l}$
-	- $a$ dimensionless scale factor, comoving coordinate $\underline{l}$ carries units (metres)
+- newtonian route: write physical position $\underline{r}[t]=a[t]\underline{x}$
+	- $a$ dimensionless scale factor, comoving coordinate $\underline{x}$ carries units (metres)
 	- acceleration gives $\ddot{a}/a = -4\pi{}G\rho{}/3$
 	- with $\rho{}a^{3}=\text{const}$ integrating gives $\dot{a}^{2}-\frac{8\pi{}G\rho{}a^{2}}{3}=2E$ - same form as 1st FL with $E\leftrightarrow{}-Kc^{2}/2$
 - most general spacetime metric is homogeneous and isotropic
