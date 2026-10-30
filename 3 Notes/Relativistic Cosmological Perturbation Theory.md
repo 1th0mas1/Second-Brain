@@ -22,14 +22,19 @@ up: [[Astrophysics.base]]
 	- mass (energy) density in new system $\rho{}'[\underline{x},t]\equiv \bar{\rho{}[t[\underline{x},t]]}{}$
 	- assuming $\delta{}t\ll t{}$ we see $\bar{\rho{}}[t]\simeq \bar{\rho{}}[t']-\dot{\bar{\rho{}}}\delta{}t[\underline{x},t]\equiv \bar{\rho{}}[t']+\delta{} \bar{\rho{}}[\underline{x},t']{}$
 	- we now have a linear perturbation term entirely due to a changed time coordinate
-- there are two ways to combat this problem
+- GR has *diffeomorphism invariance* - coordinates are just labels
+	- analogous to gauge freedom of EM potentials ($V\to{}V-\partial{}_{t}f$, $\underline{A}\to{}\underline{A}+\nabla{}f$)
+- there are three ways to combat this problem
+	- only compute observables
 	- calculate only combinations of metric perturbations which are gauge invariant
 		- ie identical under any change of coordinate system - *bardeen variables*
-		- fix the gauge and keep track of all perturbations, metric and matter
+	- fix the gauge and keep track of all perturbations, metric and matter
 - ---
-- we will do second option and use the convenient *newtonian gauge*
+- we will do third option and use the convenient *newtonian gauge*
+	- dodelson uses this, much of literature uses *synchronous gauge*
 - we will restrict ourselves to *scalar* perturbations of the metric and associated energy density inhomogeneities
 	- these are most relevant for structure formation which is the main topic of these lectures
+	- vector perturbations decay, tensor perturbations are primordial gravitational waves
 - our starting point will
 	- be conformal metric with $K=0{}$
 	- cartesian spatial coordinates instead of spherical
@@ -55,12 +60,11 @@ G_{0i} & = -2\mathcal{H}\frac{\partial{}_{i}\Phi{}}{c^{3}}-2\frac{\partial{}_{i}
 G_{ij} & =\left( \frac{2\mathcal{H}'}{c^{2}}+\frac{\mathcal{H}^{2}}{c^{2}} - 8\mathcal{H}' \frac{\Phi{}}{c^{4}} - 6\mathcal{H}\frac{\Phi{}'}{c^{4}}-\frac{2\Phi{}''}{c^{4}} - \frac{4\mathcal{H}^{2}\Phi{}}{c^{4}} \right) 
 \end{align}
 $$
-- consider RHS
+	- full derivation of $G_{\mu{}\nu{}}$ not examinable
+- consider RHS - perturb ideal fluid energy-momentum tensor
 $$
 \begin{align}
-G_{00} & = -\frac{2\mathcal{H}^{2}}{c^{2}} - 2\frac{\nabla^{2}\Phi{}}{c^{2}}+6\mathcal{H}\frac{\Phi{}'}{c^{4}} \\
-G_{0i} & = -2\mathcal{H}\frac{\partial{}_{i}\Phi{}}{c^{3}}-2\frac{\partial{}_{i}\Phi{}'}{c^{3}}  \\
-G_{ij} & =\left( \frac{2\mathcal{H}'}{c^{2}}+\frac{\mathcal{H}^{2}}{c^{2}} - 8\mathcal{H}' \frac{\Phi{}}{c^{4}} - 6\mathcal{H}\frac{\Phi{}'}{c^{4}}-\frac{2\Phi{}''}{c^{4}} - \frac{4\mathcal{H}^{2}\Phi{}}{c^{4}} \right) 
+{T^{\mu{}}}_{\nu{}} & = \left( \bar{\rho{}}+\delta{}\rho{}+\frac{\bar{P}+\delta{}P}{c^{2}} \right)\bar{U}^{\mu{}}\bar{U}_{\nu{}} + \left( \bar{\rho{}}+\frac{\bar{P}}{c^{2}} \right)(\delta{}U^{\mu{}}\bar{U}_{\nu{}}+\bar{U}^{\mu{}}\delta{}U_{\nu{}}) + (\bar{P}+\delta{}P){\delta{}^{\mu{}}}_{\nu{}}
 \end{align}
 $$
 	- thus we find
@@ -79,6 +83,7 @@ $$
 T_{\mu{}\nu{}} = \sum_{i}T_{\mu{}\nu{},i}
 $$
 - where $i{}$ is photons, baryons, dark matter
+	- (and neutrinos) - dominant species drives the perturbations
 $$
 \delta{}\rho{} = \sum_{i} \delta{}\rho{}_{i},\quad{}\delta{}P = \sum_{i}\delta{} P_{i},\quad{} q^{j}= \sum_{i}q_{i}^{j}
 $$
@@ -92,7 +97,7 @@ $$
 \boxed{\nabla^{2}\Phi{}= 4\pi{}Ga^{2}\bar{\rho{}}\delta{}+3\frac{\mathcal{H}}{c^{2}}(\mathcal{H}{\Phi{}}+\Phi{}')}
 $$
 - now we can use $\Phi{}'\sim \mathcal{H}\Phi{}{}$ and $\mathcal{H}\sim 1/\eta{}$
-- use Fourier transform such that $\nabla^{2}\to{} 1/k^{2}{}$
+- use Fourier transform such that $\nabla^{2}\to{} -k^{2}{}$
 	- for $kc\eta = kc/\mathcal{H}\gg 1{}$ then  **GR corrections term is negligible**
 - ---
 - now consider
@@ -121,14 +126,18 @@ $$
 - at 0th order $\bar{\rho{}}' + 3\mathcal{H}\bar{\rho{}}(1+\bar{P}/\bar{\rho{}}c^{2})=0{}$
 - at 1st order
 $$
-\boxed{\delta{}'+\left( 1+\frac{\bar{P}}{\bar{\rho{}}c^{2}} \right)\left( \frac{ \partial \underline{v} }{ \partial \underline{x}}-\frac{3\Phi{}'}{c^{2}}   \right)+3\mathcal{H}\left( \frac{c_{s}^{2}}{c^{2}}- \frac{\bar{P}}{\bar{\rho{}}c^{2}} \right)\delta{}}
+\boxed{\delta{}'+\left( 1+\frac{\bar{P}}{\bar{\rho{}}c^{2}} \right)\left( \frac{ \partial \underline{v} }{ \partial \underline{x}}-\frac{3\Phi{}'}{c^{2}}   \right)+3\mathcal{H}\left( \frac{c_{s}^{2}}{c^{2}}- \frac{\bar{P}}{\bar{\rho{}}c^{2}} \right)\delta{}=0}
 $$
 - we can also derive Euler from the $\nu{}=i{}$ component
 $$
-\boxed{\delta{}'+\left( 1+\frac{\bar{P}}{\bar{\rho{}}c^{2}} \right)\left( \frac{ \partial \underline{v} }{ \partial \underline{x}}-\frac{3\Phi{}'}{c^{2}}   \right)+3\mathcal{H}\left( \frac{c_{s}^{2}}{c^{2}}- \frac{\bar{P}}{\bar{\rho{}}c^{2}} \right)\delta{}}
+\boxed{\underline{v}'+\mathcal{H}\underline{v}-3\mathcal{H}\frac{c_{s}^{2}}{c^{2}}\underline{v} = -\frac{ \partial \Phi{} }{ \partial \underline{x} } - \frac{c_{s}^{2}}{1+\bar{P}/\bar{\rho{}}c^{2}}\frac{ \partial \delta{} }{ \partial \underline{x} }}
 $$
-- we see that $\mathcal{H}_{'0} = 4.3 \times 10^{3}{}\text{ Mpc}$ but $BAO\sim 100 \text{ Mpc}{}$ so we can neglect GR perturbations and use newtonian results
+- both reduce to newtonian continuity and euler as $c\to{}\infty$
+	- relativistic terms only matter when object's dynamical time is comparable to hubble time
+- we see that $c/\mathcal{H}_{0} \approx{} 4.3 \times 10^{3}{}\text{ Mpc}$ but $BAO\sim 100 \text{ Mpc}{}$ (clusters ~150 Mpc) so we can neglect GR perturbations and use newtonian results
 - consider CMB $z\sim 1100{}$ where Newtonian limits begin to degrade
+	- horizon scale then ~$140\,h^{-1}$ Mpc ie ~1-2 degrees on the sky - large angle CMB needs GR
+- at BBN (first three minutes) horizon ~10 pc - early universe needs full relativistic treatment
 
 
 # Related

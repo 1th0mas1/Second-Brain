@@ -12,6 +12,13 @@ up: [[Astrophysics.base]]
 
 # The Homogeneous Universe
 
+- static homogeneous isotropic newtonian universe is not self-consistent
+	- it would collapse under its own gravity
+	- universe must be dynamic - expanding or contracting
+- newtonian route: write physical position $\underline{r}(t)=a(t)\underline{l}$
+	- $a$ dimensionless scale factor, comoving coordinate $\underline{l}$ carries units (metres)
+	- acceleration gives $\ddot{a}/a = -4\pi{}G\rho{}/3$
+	- with $\rho{}a^{3}=\text{const}$ integrating gives $\dot{a}^{2}-\frac{8\pi{}G\rho{}a^{2}}{3}=2E$ - same form as 1st FL with $E\leftrightarrow{}-Kc^{2}/2$
 - most general spacetime metric is homogeneous and isotropic
 $$
 \boxed{ds^{2} = -c^{2}dt^{2}+a^{2}[t]\left( \frac{dr^{2}}{1-Kr^{2}}+r^{2}d \theta{}^{2}+r^{2} \sin^{2}\theta{}d\phi{}^{2} \right) }
@@ -52,6 +59,8 @@ $$
 \end{align}
 
 $$
+- without $\Lambda$ both dust ($P=0$) and radiation ($P=\rho{}c^{2}/3$) always decelerate expansion
+	- acceleration needs $\Lambda$ (or a scalar field with $P<-\rho{}c^{2}/3$)
 - convenient to define *Hubble parameter* aka the expansion rate of the universe
 	- $H[t] = \dot{a}[t]/a[t]{}$
 - we also define the critical density
@@ -93,11 +102,15 @@ $$
 H^{2}[z] = H_{0}^{2}\left( \Omega{}_{M,0}(1+z)^{3}+\Omega{}_{\gamma{},0}(1+z)^{4}+\Omega{}_{V,0}+\Omega{}_{K,0}(1+z)^{2} \right) 
 $$
 - current best estimates are $\Omega{}_{M,0} = 0.317{}$, $\Omega{}_{V,0}=0.683{}$, $\Omega{}_{K,0} = 0.0{}$, $\Omega{}_{\gamma{},0}= 9 \times 10^{-5}{}$ and $H_{0} = 67.2 \text{km}/\text{s}/\text{Mpc}{}$
+	- baryons only ~5%, rest of matter is dark matter
+	- *hubble tension*: CMB (inverse distance ladder) gives $H_{0}\approx{}68$, supernovae give $\approx{}73$ km/s/Mpc - $>5\sigma$ discrepancy
+	- BAO + CMB fits hint at dark energy with evolving equation of state (~$3\sigma$)
 - ---
 - we may define a new variabele known as *conformal time* $d\eta \equiv dt/ a[t]{}$
 $$
 ds^{2} = a^{2}[\eta]\left( -c^{2}d\eta^{2} + \frac{dr^{2}}{1-Kr^{2}}+r^{2}d\theta{}^{2} + r^{2}\sin^{2}\theta{} d\phi{}^{2} \right) 
 $$
+- for $K=0$ this is just minkowski metric multiplied by $a^{2}$
 - $\eta{}$ is the amount of time it would take a photon to travel from where an observer is located to largest distance it can observe
 	- provided the universe stopped expanding
 - ---

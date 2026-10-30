@@ -51,10 +51,12 @@ $$
 \end{align}
 $$
 - here we defined a new gravitational potential $\Phi{} = \Psi{} + \frac{1}{2}a \ddot{a}\underline{x}^{2}{}$
+	- subtracts the expansion part so mean density cancels in poisson equation - $\Phi$ only sourced by $\delta$
 - ---
 - in limit where fluid only slightly perturbed compared to homogeneous and isotropic background we may write
 	- $\rho{}[\underline{x},t] = \bar{\rho{}}[t](1+\delta{}[\underline{x},t]){}$
 	- hence density contrast $\delta{}[\underline{x},t]\equiv (\rho{}[\underline{x},t]-\bar{\rho{}}(t))/\bar{\rho{}}[t]{}\ll 1$
+		- early universe perturbations ~$10^{-5}$ so linear theory works well
 	- we also see $\underline{v} \ll \dot{ a} \underline{x}{}$
 	- $P[\underline{x},t] = \bar{P}[t]+\delta{}P[\underline{x},t]=\bar{P}[t]+(\partial{}P/\partial{}\rho{})_{S}\delta{}\rho{}[\underline{x},t]{}= \bar{P}[t]+c_{s}^{2}\bar{\rho{}}[t]\delta[\underline{x},t]{}$
 	- associated speed of sound $c_{s}^{2}=  \partial{}P/\partial{}\rho{}{}$
@@ -67,6 +69,7 @@ $$
 \nabla^{2}_{\underline{x}}\Phi{}[\underline{x},r]=4\pi{} G \bar{\rho{}}a^{2}\delta{}[\underline{x},t]}
 \end{align}
 $$
+- using $\rho{}_{c}=3H^{2}/8\pi{}G$ poisson is often written as $\nabla^{2}_{\underline{x}}\Phi{}=\frac{3}{2}\Omega{}_{m}(t)H^{2}(t)a^{2}\delta{}$
 ---
 - we can combine these equations to find
 $$
@@ -82,6 +85,16 @@ $$
 $$
 \boxed{\delta{}_{k}''+\mathcal{H}\delta{}_{k}'+(c_{s}^{2}k^{2}- 4\pi{} Ga^{2}\bar{\rho{}})\delta{}_{k}=0}
 $$
+- growth set by expansion rate (damping) and balance of pressure support vs gravitational collapse
+---
+- linear theory fails where $\delta{}\not\ll 1$ eg clusters and groups
+	- nonlinear term $(\underline{v}\cdot{}\nabla)\underline{v}$ couples different $k$ modes
+- *smoothed effective theory*: smooth fields on scale $\Lambda$, $\delta{}\to{}\delta{}_{\Lambda{}}$
+	- continuity and poisson unchanged, euler gains an effective stress term
+		- form constrained by equivalence principle and isotropy
+	- extra terms only enter beyond linear order - linear results stay correct
+- cosmological simulations evolve gas with these newtonian equations
+	- dark matter treated as pressureless fluid or via boltzmann equation
 
 
 

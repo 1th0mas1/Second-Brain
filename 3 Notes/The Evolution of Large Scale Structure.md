@@ -27,8 +27,13 @@ $$
 	- this defines the transition between these two behaviours
 		- for $\lambda{}> \lambda{}_{J}{}$ gravitational collapse dominates and perturbations grow
 		- for $\lambda{}<\lambda{}_{j}{}$ pressure wins and perturbations do not grow
+	- physically it's the scale where sound crossing time $R/c_{s}$ equals free-fall time $\sim 1/\sqrt{ G\bar{\rho{}} }$
+	- if $P>-\frac{1}{3}\rho{}c^{2}$ then $\lambda{}_{J}$ grows faster than $a$ - modes can get switched off from growing
 - we note that $c_{s}^{2}\sim k_{B}T/m{}$ we can thus rewrite Jeans length $\lambda{}_{J} = \sqrt{ \pi{}k_{B}T/(Gm\bar{\rho{}}) }{}$
 	- clear that a system that is hot and/or made up of light particles has large $\lambda{}_{J}{}$ and vice versa
+- universe passes radiation $\to{}$ matter $\to{}$ $\Lambda$ domination
+	- radiation-matter equality at $a\sim{}1/3000$, $\Omega{}_{\Lambda{}}\approx{}0.7$ today
+	- full evolution needs numerics - here solve each regime analytically in isolation
 - we will apply perturbations to matter density for structures so $\bar{\rho{}}\to{} \bar{\rho{}}_{M}{}$
 ---
 - we now change equations for multi-component
@@ -103,8 +108,10 @@ $$
 	- second term decays and becomes subdominant
 	- if we used $t{}$ instead of $\eta{}$
 $$
-\delta{}_{M,k}= c_{1}' + c_{2}'\exp\left( -2\sqrt{ \frac{\Lambda{}}{3} }t \right)
+\delta{}_{M,k}= c_{1}' + c_{2}'\exp\left( -2c\sqrt{ \frac{\Lambda{}}{3} }t \right)
 $$
+	- since $a\propto{}\exp(c\sqrt{ \Lambda{}/3 }\,t)$ - the $c$ is needed as $\Lambda$ has units $\text{m}^{-2}$
+- growth freezes - expansion damping wins as matter no longer sources the potential
 
 ## Relativistic Fluid in the Radiation Dominated Era
 
@@ -143,7 +150,7 @@ $$
 		- $y_{1}[x] = - \cos[x]/x^{2}-\sin[x]/x{}$
 	- consider early times $\eta \to{} 0{}$ we deduce that $A_{2}= 0{}$ otherwise potential would blow up
 	- contrary to if we followed modified Newtonian road this solution is valid for any wavenumber $k{}$ even corresponding to super-horizon wavelengths
-	- if we only consider sub-horizon models ($kx\eta{}\gg1{}$) then we get
+	- if we only consider sub-horizon models ($kc\eta{}\gg1{}$) then we get
 $$
 \Phi{}_{k} \simeq - \frac{3A_{1}}{(kc\eta{})^{2}}\cos \left[ \frac{kc\eta{}}{\sqrt{ 3 }} \right]
 $$
@@ -156,6 +163,7 @@ $$
 \boxed{\delta{}_{\gamma{},k}\simeq - \frac{2}{3}k^{2}\eta{}^{2}\Phi{}_{k} = \frac{2A_{1}}{c^{2}}\cos \left[ \frac{kc\eta{}}{\sqrt{ 3 }} \right] }
 $$
 	- sub-horizon energy density perturbations in relativistic fluid oscillate around $\delta{}_{k} = 0{}$ at a frequency $kc/\sqrt{ 3 }{}$ with constant amplitude
+		- these are sound waves in the photon-baryon plasma - imprinted on CMB and galaxy distribution (BAO)
 - for super-horizon we can find both $\Phi{}_{k}{}$ and $\delta{}_{k}{}$ are constant (counterintuitive)
 
 ## Pressureless Matter in the Radiation Dominated Era
@@ -180,6 +188,8 @@ $$
 \boxed{\delta{}_{M,k} = C_{1}\ln \eta{} + C_{2}}
 $$
 - interest that even though $\delta{}_{\gamma{},k}{}$ do not grow in dominant term, but the sub-dominant pressureless matter component does
+	- only logarithmic as potential sourced by radiation decays ($\Phi{}_{k}\propto{}\eta^{-2}$) so little gravitational pull
+- overall matter growth: $\ln a$ in radiation era $\to{}$ $\propto a$ in matter era $\to{}$ const in $\Lambda$ era
 
 ## Damping of Cosmological Perturbations
 
@@ -195,6 +205,11 @@ $$
 $$
 \left( p^{\alpha{}}\frac{ \partial  }{ \partial x^{\alpha{}} } -\Gamma{}^{\alpha{}}_{\mu{}\nu{}}p^{\mu{}}p^{\nu{}}\frac{ \partial  }{ \partial p^{\alpha{}} }  \right) f= \left( \frac{ \partial f }{ \partial t }  \right) _{\text{coll}}
 $$
+- no collisions: $df/dt=0$, particles just follow trajectories
+- with collisions $df/dt=C[f]$ - master equation behind CMB, LSS, BBN and ionisation history
+- fluid quantities are momentum moments of $f$
+	- $n\propto{}\int d^{3}p\,f$, $\rho{}\propto{}\int d^{3}p\,Ef$, bulk velocity from $\int d^{3}p\,(p/E)f$
+	- ideal fluid approximation ignores higher moments (eg anisotropic stress)
 
 ### Damping During Recombination
 
@@ -205,7 +220,7 @@ $$
 - mean free path is given by $\lambda{}_{\text{mfp}}\approx{}1/(\sigma{}_{T}n_{e}){}$
 	- $n_{e}{}$ is number density of free electrons
 	- $\sigma{}_{T}{}$ the Thompson scattering cross-section
-- as universe recombines (around $z_{*} \simeq 1100{}$):
+- as universe recombines (around $z_{*} \simeq 1100{}$, ~400,000 yr):
 	- $n_{e}{}$ plummets over a redshift change of $\Delta{}z \simeq 80{}$
 		- photons and electrons aren't perfectly coupled at that time the photons will be able to randomly walk out of over densities as they scatter off free electrons
 			- in doing so they drag matter from overdense to underdense regions and therefore damp out perturbations on scales smaller than characterised random walk scale
@@ -226,13 +241,23 @@ $$
 - we use $c\eta{}_{*} =262 \text{ Mpc}{}$, $a[\eta{}_{*}]\simeq 1/1101 = 9.08 \times 10^{-4}{}$, $\sigma{}_{T}= 6.65 \times 10^{-25}\text{ cm}^{2}{}$ and $n_{e}[\eta{}_{*}]\simeq 332 \text{ cm}^{-3}{}$ yields
 	- $\lambda{}_{S}^{c}\simeq 9.2 \text{ Mpc}{}$
 		- fluctuation below this scale will be washed away
+		- unlike neutrinos (which only erase their own fluctuations) silk damping also suppresses baryon perturbations
 
 ### Massive Neutrinos During Any Era
 
 - neutrinos can't be described as a fluid
 	- they interact weakly with each other and so evolution must be studied by boltzmann equation
 	- as for silk damping it is possible to derive an approximation of their effect
-- on very large scales $> R_{h}(t_{\text{eq}}) {}$ 
+- on very large scales $> R_{h}(t_{\text{eq}}) {}$ they cluster like matter/radiation
+- on small scales they *free stream* out of overdensities - damps small scale modes
+	- collisionless boltzmann for $\delta{}f$ in fourier space: $\partial{}_{t}\delta{}f=-i\frac{pk\mu{}}{Ea}\delta{}f$ - phases of different momenta average out
+	- large velocity dispersion erases perturbations below free-streaming scale
+		- cold dark matter has low dispersion - moves together so not washed out
+	- free-streaming scale $\propto 1/m_{\nu{}}$ - so probes neutrino mass
+- current bounds
+	- lab (beta decay) $m_{\nu{}}\lesssim{}0.8$ eV
+	- oscillations require $\sum m_{\nu{}}\gtrsim{}0.06$ eV
+	- cosmology $\sum m_{\nu{}}\lesssim{}0.1$ eV - next gen surveys may detect it
 
 
 
