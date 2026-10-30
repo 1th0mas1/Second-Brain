@@ -1,0 +1,16 @@
+# excluded by request
+1 Daily Routine/
+Dashboard.md
+Claude - Working With Me.md
+.claudian/
+
+# system / obsidian churn
+.DS_Store
+.trash/
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/plugins/text-extractor/cache/
+.obsidian/themes/AnuPpuccin/
+
+# plugin settings can hold API keys/tokens
+.obsidian/plugins/*/data.json

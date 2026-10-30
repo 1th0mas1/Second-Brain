@@ -1,0 +1,15 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - Class == ["Astrophysics"]
+    order:
+      - file.name
+      - Index
+      - file.folder
+    sort:
+      - property: file.folder
+        direction: ASC
+      - property: Index
+        direction: ASC

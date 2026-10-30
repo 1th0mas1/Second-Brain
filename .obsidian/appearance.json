@@ -1,0 +1,19 @@
+{
+  "cssTheme": "Minimal",
+  "theme": "system",
+  "accentColor": "#2764dd",
+  "baseFontSize": 16,
+  "translucency": false,
+  "showViewHeader": true,
+  "showRibbon": false,
+  "nativeMenus": true,
+  "enabledCssSnippets": [
+    "left_ribbon",
+    "dashboard-fix",
+    "dashboard-widgets",
+    "admonition-col2-col3-flex"
+  ],
+  "interfaceFontFamily": "Overpass",
+  "textFontFamily": "Overpass",
+  "monospaceFontFamily": "Overpass"
+}

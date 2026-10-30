@@ -1,0 +1,23 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "Spirit": "number",
+    "Year": "number",
+    "Reset": "checkbox",
+    "Meditation": "checkbox",
+    "Yoga": "checkbox",
+    "Reading": "checkbox",
+    "Socialising": "number",
+    "Exercise": "number",
+    "Productivity": "number",
+    "Stress": "number",
+    "Energy": "number",
+    "Mood": "number",
+    "Class": "multitext",
+    "Topics": "multitext",
+    "Type": "multitext",
+    "Index": "number"
+  }
+}

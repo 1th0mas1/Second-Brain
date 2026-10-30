@@ -1,0 +1,18 @@
+{
+  "name": "fenced-star-autopair",
+  "version": "0.1.0",
+  "description": "Fenced Star Autopair plugin",
+  "author": {
+    "name": "Local developer"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Fenced Star Autopair",
+    "shortDescription": "Use Fenced Star Autopair in Codex.",
+    "longDescription": "Fenced Star Autopair adds a local Codex plugin scaffold.",
+    "developerName": "Local developer",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Help me use Fenced Star Autopair."
+  }
+}

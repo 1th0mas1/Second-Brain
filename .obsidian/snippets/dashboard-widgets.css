@@ -1,0 +1,45 @@
+/* =========================================================
+   Dashboard widgets
+   Scoped to notes with `cssclasses: dashboard` in frontmatter.
+   Covers: centering, and card styling for the search/todoist
+   blocks. The classes/habits row uses the Admonition plugin's
+   `flex` type + admonition-col2-col3-flex.css for its layout.
+   ========================================================= */
+
+/* ---------- Center this note's content column ---------- */
+.dashboard .markdown-preview-sizer,
+.dashboard .markdown-source-view .cm-sizer {
+  max-width: 900px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ---------- Card styling shared by search / todoist ---------- */
+.block-language-embedded-omnisearch,
+.block-language-todoist {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+  padding: 1em 1.2em;
+  margin: 1em 0;
+}
+
+/* ---------- Safety overrides: keep the flex wrapper invisible ---------- */
+.admonition-flex,
+.callout.admonition-flex {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 1em 0 !important;
+}
+
+.admonition-flex .admonition-content > div {
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .admonition-flex .admonition-content {
+    flex-direction: column;
+  }
+}

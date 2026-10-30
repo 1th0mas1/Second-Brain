@@ -1,0 +1,506 @@
+/*
+ * Callout Control Panel — Modal Styles
+ *
+ * Attribution: Derived from the Editing Toolbar plugin by Cuman
+ * (https://github.com/cumany/obsidian-editing-toolbar), licensed under MIT.
+ */
+
+/* ─── Utility classes ─────────────────────────────────────────────────── */
+
+.ccp-hidden.ccp-hidden {
+	display: none;
+}
+
+.ccp-transparent-icon {
+	opacity: 0.35;
+}
+
+.ccp-toggle-active.ccp-toggle-active {
+	background-color: var(--interactive-accent);
+	color: var(--text-on-accent);
+}
+
+.ccp-sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+}
+
+.calloutmanager-callout-resolver.calloutmanager-callout-resolver {
+	display: none;
+}
+
+/* Textarea fills the modal width */
+.insert-callout-modal textarea {
+	width: 100%;
+	resize: vertical;
+}
+
+/* Type selector row: icon preview + dropdown side by side */
+.callout-type-container {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.callout-type-container .setting-item {
+	width: 100%;
+}
+
+/* Icon preview box next to the type dropdown */
+.callout-icon-container {
+	display: flex;
+	width: 24px;
+	height: 24px;
+	align-items: center;
+}
+
+.callout-icon-container svg {
+	width: 16px;
+	height: 16px;
+	color: var(--callout-color);
+}
+
+/* Shortcut hint shown at the bottom of the insertion modal */
+.insert-callout-shortcut-hint {
+	text-align: right;
+	font-size: 0.8em;
+	opacity: 0.7;
+	margin-top: 5px;
+}
+
+/* Quick-pick callout suggestion items */
+.quick-pick-callout-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.quick-pick-callout-icon {
+	display: flex;
+	width: 20px;
+	height: 20px;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.quick-pick-callout-icon svg {
+	width: 16px;
+	height: 16px;
+	color: var(--callout-color);
+}
+
+.quick-pick-callout-label {
+	flex: 1;
+}
+
+/* Source tag shown next to snippet/custom types in the quick-pick list */
+.quick-pick-callout-source {
+	font-size: 0.75em;
+	opacity: 0.5;
+	padding: 1px 6px;
+	border-radius: 4px;
+	background: var(--background-modifier-hover);
+}
+
+/* Inline warning icon next to the "Detected types" heading */
+.detected-snippet-header-warning {
+	display: inline-flex;
+	align-items: center;
+	margin-left: 6px;
+	vertical-align: middle;
+}
+
+.detected-snippet-header-warning svg {
+	width: 14px;
+	height: 14px;
+	color: var(--text-warning);
+}
+
+/* ─── Shared indented card container ──────────────────────────────────── */
+/* Used by detected snippet types, custom callout types, icon packs,
+   and title overrides. */
+
+.detected-snippet-types,
+.custom-callout-types,
+.ccp-icon-packs,
+.ccp-title-overrides {
+	margin: 0 0 12px 5%;
+	padding: 6px 12px 6px 16px;
+	background: var(--background-secondary);
+	border-radius: 6px;
+	border-left: 3px solid var(--interactive-accent);
+}
+
+.detected-snippet-types-summary,
+.custom-callout-types-summary {
+	cursor: pointer;
+	font-size: var(--font-ui-smaller);
+	opacity: 0.6;
+	padding: 4px 0;
+	user-select: none;
+}
+
+.detected-snippet-types-summary:hover,
+.custom-callout-types-summary:hover {
+	opacity: 0.9;
+}
+
+/* Table grid: Icon | Callout | Icon Name | Color | Actions */
+.detected-snippet-type-row {
+	display: grid;
+	grid-template-columns: 24px 1fr 1fr 1fr 24px;
+	align-items: center;
+	gap: 8px;
+	padding: 4px 0;
+}
+
+/* Custom callout rows use wider action column for edit/delete buttons */
+.custom-callout-type-row {
+	display: grid;
+	grid-template-columns: 24px 1fr 1fr 1fr 48px;
+	align-items: center;
+	gap: 8px;
+	padding: 4px 0;
+}
+
+.detected-snippet-type-header,
+.custom-callout-type-header,
+.ccp-title-override-header {
+	font-size: var(--font-ui-smaller);
+	font-weight: var(--font-semibold);
+	opacity: 0.6;
+	border-bottom: 1px solid var(--background-modifier-border);
+	padding-bottom: 4px;
+	margin-bottom: 2px;
+}
+
+.detected-snippet-type-icon,
+.custom-callout-type-icon {
+	display: flex;
+	width: 18px;
+	height: 18px;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.detected-snippet-type-icon svg,
+.custom-callout-type-icon svg {
+	width: 14px;
+	height: 14px;
+	color: var(--callout-color);
+}
+
+.custom-callout-type-icon img {
+	width: 14px;
+	height: 14px;
+}
+
+.detected-snippet-col-callout,
+.custom-callout-col-callout {
+	font-size: var(--font-ui-small);
+}
+
+.detected-snippet-type-meta,
+.custom-callout-type-meta {
+	font-size: var(--font-ui-smaller);
+	opacity: 0.5;
+	font-family: var(--font-monospace);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* Invalid icon name — struck through to indicate it won't resolve */
+.detected-snippet-type-invalid {
+	text-decoration: line-through;
+	opacity: 0.6;
+}
+
+.detected-snippet-type-warning {
+	display: flex;
+	align-items: center;
+}
+
+.detected-snippet-type-warning svg {
+	width: 14px;
+	height: 14px;
+	color: var(--text-warning);
+}
+
+/* Action buttons in custom callout and title override rows */
+.custom-callout-actions {
+	display: flex;
+	gap: 2px;
+	align-items: center;
+}
+
+.custom-callout-actions .clickable-icon {
+	padding: 2px;
+	cursor: pointer;
+	opacity: 0.5;
+	border-radius: 4px;
+}
+
+.custom-callout-actions .clickable-icon:hover {
+	opacity: 1;
+	background: var(--background-modifier-hover);
+}
+
+.custom-callout-actions .clickable-icon svg {
+	width: 14px;
+	height: 14px;
+}
+
+/* Malformed snippet warnings */
+.detected-snippet-warnings {
+	margin: 8px 0 12px 5%;
+	padding: 8px 12px;
+	background: var(--background-secondary);
+	border-radius: 6px;
+	border-left: 3px solid var(--text-warning);
+	font-size: var(--font-ui-small);
+}
+
+.detected-snippet-warnings-header {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-weight: var(--font-semibold);
+	margin-bottom: 4px;
+}
+
+.detected-snippet-warnings-icon {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.detected-snippet-warnings-icon svg {
+	width: 14px;
+	height: 14px;
+	color: var(--text-warning);
+}
+
+.detected-snippet-warnings ul {
+	margin: 4px 0 0 8px;
+	padding-left: 16px;
+	opacity: 0.8;
+}
+
+.detected-snippet-warnings li {
+	font-family: var(--font-monospace);
+	font-size: var(--font-ui-smaller);
+	padding: 1px 0;
+}
+
+/* Compact settings inside the icon packs box */
+.ccp-icon-packs .setting-item {
+	padding: 6px 0;
+	border-top: none;
+}
+
+/* ─── Title override grid ─────────────────────────────────────────────── */
+
+.ccp-title-override-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr 24px;
+	align-items: center;
+	gap: 8px;
+	padding: 4px 0;
+}
+
+.ccp-title-override-col-type {
+	font-size: var(--font-ui-small);
+}
+
+.ccp-title-override-input {
+	width: 100%;
+	min-height: 1.8em;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid transparent;
+	font-size: var(--font-ui-small);
+	font-family: var(--font-monospace);
+	color: var(--text-normal);
+	padding: 4px 4px;
+	opacity: 0.7;
+	box-sizing: border-box;
+}
+
+.ccp-title-override-input:hover,
+.ccp-title-override-input:focus {
+	border-bottom-color: var(--interactive-accent);
+	opacity: 1;
+	outline: none;
+}
+
+/* Larger touch targets on tablet/mobile */
+.is-tablet .ccp-title-override-input,
+.is-mobile .ccp-title-override-input {
+	min-height: 2.4em;
+	font-size: var(--font-ui-medium);
+	padding: 6px 8px;
+}
+
+/* ─── Settings tab bar ─────────────────────────────────────────────────── */
+
+.ccp-tab-bar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	border-bottom: 3px solid var(--interactive-accent);
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.ccp-tab-button {
+	display: flex;
+	align-items: center;
+	padding: 8px 12px;
+	background: none;
+	border: none;
+	border-radius: 6px 6px 0 0;
+	cursor: pointer;
+	color: var(--text-faint);
+	font-size: var(--font-ui-small);
+	transition: color 0.15s ease, background 0.15s ease;
+}
+
+.ccp-tab-button:hover {
+	color: var(--text-normal);
+	background: var(--background-modifier-hover);
+}
+
+.ccp-tab-button.ccp-tab-active {
+	color: var(--interactive-accent);
+	background: var(--background-secondary);
+	font-weight: var(--font-semibold);
+}
+
+/* Tab icon — always visible */
+.ccp-tab-icon {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.ccp-tab-icon svg {
+	width: 16px;
+	height: 16px;
+}
+
+/* Tab label — hidden by default, shown when active or hovered */
+.ccp-tab-label {
+	display: inline-block;
+	max-width: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	opacity: 0;
+	margin-left: 0;
+	transition: max-width 0.25s ease, opacity 0.2s ease, margin-left 0.25s ease;
+}
+
+.ccp-tab-button.ccp-tab-active .ccp-tab-label,
+.ccp-tab-button:hover .ccp-tab-label {
+	max-width: 200px;
+	opacity: 1;
+	margin-left: 6px;
+}
+
+/* Mobile: always show labels, no hover animation, larger touch targets */
+.is-mobile .ccp-tab-button {
+	padding: 10px 10px;
+	min-height: 44px;
+}
+
+.is-mobile .ccp-tab-label {
+	max-width: 200px;
+	opacity: 1;
+	margin-left: 6px;
+	transition: none;
+}
+
+.is-mobile .ccp-tab-button .ccp-tab-label {
+	max-width: 200px;
+	opacity: 1;
+	margin-left: 6px;
+}
+
+/* ─── Settings content area ───────────────────────────────────────────── */
+
+.ccp-tab-pane {
+	padding-top: 8px;
+}
+
+/* Extra vertical spacing between individual setting items */
+.ccp-tab-pane > .setting-item {
+	padding-top: 14px;
+	padding-bottom: 14px;
+}
+
+/* ─── 5.2 Copy-to-clipboard button (bottom-right of callout) ─────────── */
+/* Button is appended directly to .callout, which already carries
+   position:relative in Obsidian's own stylesheet. No wrapper needed. */
+
+.ccp-copy-button {
+	position: absolute;
+	right: 8px;
+	bottom: 8px;
+	display: flex;
+	align-items: center;
+	padding: 4px;
+	cursor: pointer;
+	opacity: 0;
+	border-radius: 4px;
+	transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+/* Show on callout hover */
+.callout:hover .ccp-copy-button {
+	opacity: 0.4;
+}
+
+.callout .ccp-copy-button:hover {
+	opacity: 1;
+	background: var(--background-modifier-hover);
+}
+
+.ccp-copy-button svg {
+	width: 14px;
+	height: 14px;
+	color: var(--text-muted);
+}
+
+/* ─── Mobile keyboard avoidance ──────────────────────────────────────── */
+/* When the soft keyboard opens, JS constrains the modal-container height
+   and sets bottom:auto to override inset:0. These rules ensure the modal
+   box itself scrolls within the reduced space. */
+
+.is-mobile .insert-callout-modal,
+.is-mobile .callout-edit-modal {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.is-mobile .insert-callout-modal .modal,
+.is-mobile .callout-edit-modal .modal {
+	max-height: 100%;
+	overflow-y: auto;
+	box-sizing: border-box;
+}
+
+.ccp-keyboard-constrained {
+	height: var(--ccp-vp-height);
+	top: var(--ccp-vp-top);
+	bottom: auto;
+	overflow: hidden;
+}
+
+.ccp-keyboard-constrained > .modal {
+	max-height: var(--ccp-vp-height);
+}

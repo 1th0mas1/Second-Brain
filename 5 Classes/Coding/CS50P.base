@@ -1,0 +1,16 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - Class == ["CS50P"]
+    order:
+      - Index
+      - file.name
+      - Topics
+      - file.folder
+    sort:
+      - property: Index
+        direction: ASC
+  - type: table
+    name: View
