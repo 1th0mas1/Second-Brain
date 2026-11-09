@@ -19,7 +19,7 @@ Read: false
 > [!abstract] Abstract
 > 
 
-[[Day1-1.pdf]]
+[[Day1-1.pdf|Day1.pdf]]
 
 [[Day2.pdf]]
 
@@ -28,5 +28,13 @@ Read: false
 [[Day4.pdf]]
 
 [[Day5.pdf]]
+
+[[Day6.pdf]]
+
+[[Day7.pdf]]
+
+[[Day8.pdf]]
+
+
 
 # Related

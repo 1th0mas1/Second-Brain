@@ -7,6 +7,7 @@ Class:
   - Astrophysics
 Topics:
   - Cosmology
+  - difficult
 ---
 up: [[Astrophysics.base]]
 
@@ -258,9 +259,26 @@ $$
 	- lab (beta decay) $m_{\nu{}}\lesssim{}0.8$ eV
 	- oscillations require $\sum m_{\nu{}}\gtrsim{}0.06$ eV
 	- cosmology $\sum m_{\nu{}}\lesssim{}0.1$ eV - next gen surveys may detect it
-
-
-
-
+- neutrinos are still ultra-relativistic when they decouple
+	- we define a time $t_{nr}{}$ when neutrinos transition form being relativistic to non relativistic $k_{B}T(t_{nr}) \sim m_{\nu{}}c^{2}{}$
+- proper length travelled by neutrinos given by
+$$
+\begin{align}
+\lambda{}_{\text{FS}}[t_{0}]  & = a[t_{0}]\int_{0}^{t_{0}}\frac{v[t]}{a[t]}dt\simeq a[\eta{}_{0}]c\left( \int_{0}^{\eta{}_{nr}}d \eta{}+\int_{\eta{}_{nr}}^{\eta{}_{eq}}\frac{\eta{}_{nr}}{\eta{}}d \eta{} + \int_{\eta{}_{eq}}^{\eta{}_{0}}\frac{\eta{}_{nr}\eta{}_{eq}}{\eta{}^{2}}d \eta{} \right)  \\
+ & = c \eta{}_{nr}(1+\ln[\eta{}_{eq}/\eta{}_{nr}]+\eta{}_{eq}(1/\eta{}_{eq}-1/\eta{}_{0})) \\
+ & = c\eta{}_{nr}(2+\ln[\eta{}_{eq}/\eta{}_{nr}])
+\end{align}
+$$
+- here we used the scale factor relations of
+	- $a[\eta{}]= a[\eta{}_{nr}](\eta{}/\eta{}_{nr}){}$ during radiation dominated
+	- $a[\eta{}] = a[\eta{}_{eq}](\eta{}/\eta{}_{eq})^{2}{}$ during matter dominated
+- this leads to damping effect wiping out structure on small scales
+	- neutrino velocity is larger than escape velocity for gravitational potential fluctuations
+- plugging in number $c\eta{}_{nr}\sim \eta{}_{eq}\simeq 10\text{ Mpc}{}$
+$$
+\lambda{}_{\text{FS}}\equiv \lambda{}_{\text{FS}}[t_{0}]\simeq 20 \left( \frac{1\text{ eV}}{m_{\nu{}}} \right) \text{Mpc}
+$$
+- given upper limits on neutrinos mass
+	- this corresponds to scales larger than galaxy clusters
 
 # Related

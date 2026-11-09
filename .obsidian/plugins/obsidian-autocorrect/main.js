@@ -129,6 +129,11 @@ function validateCorrection(original, candidate) {
       return { accepted: false, reason: "added-closing-delimiter" };
     }
   }
+  for (const delimiter of ["$", "`"]) {
+    if (original.split(delimiter).length !== corrected.split(delimiter).length) {
+      return { accepted: false, reason: "changed-math-or-code-delimiter" };
+    }
+  }
   if (!original.includes("#") && corrected.includes("#")) {
     return { accepted: false, reason: "added-hashtag" };
   }
@@ -145,6 +150,30 @@ function validateCorrection(original, candidate) {
     return { accepted: false, reason: "added-code-fence" };
   }
   return { accepted: true, corrected };
+}
+// Swap inline math and code for placeholders so the model never sees (or rewrites) them
+var PROTECTED_SPAN_PATTERN = /\$\$[^$]+\$\$|\$[^$]+\$|`[^`]+`/g;
+function maskProtectedSpans(text) {
+  const spans = [];
+  const masked = text.replace(PROTECTED_SPAN_PATTERN, (span) => {
+    spans.push(span);
+    return `⟦${spans.length - 1}⟧`;
+  });
+  return { text: masked, spans };
+}
+function unmaskProtectedSpans(text, spans) {
+  if (text === null) {
+    return null;
+  }
+  let result = text;
+  for (let i = 0; i < spans.length; i++) {
+    const placeholder = `⟦${i}⟧`;
+    if (result.split(placeholder).length !== 2) {
+      return null;
+    }
+    result = result.replace(placeholder, () => spans[i]);
+  }
+  return /[⟦⟧]/.test(result) ? null : result;
 }
 function parseJsonCorrection(content) {
   const direct = parseJsonObject(content);
@@ -197,7 +226,7 @@ function startsWithFence(trimmed, fenceChar, fenceLen) {
   return true;
 }
 function isClosedMathLine(trimmed) {
-  return trimmed.length > 2 && trimmed.endsWith("$$");
+  return trimmed.indexOf("$$", 2) !== -1;
 }
 function computeBlockStateBeforeLine(editor, line) {
   let state = "text";
@@ -222,7 +251,7 @@ function computeBlockStateBeforeLine(editor, line) {
         state = "text";
       }
     } else if (state === "math") {
-      if (trimmed.endsWith("$$")) {
+      if (trimmed.includes("$$")) {
         state = "text";
       }
     }
@@ -361,10 +390,11 @@ var AutoCorrecter = class extends import_obsidian.Plugin {
         0
       );
     }
-    const response = await this.getLLMResponse(originalBody);
+    const masked = maskProtectedSpans(originalBody);
+    const response = await this.getLLMResponse(masked.text);
     const validation = validateCorrection(
       originalBody,
-      (_a = response.corrected_spelling) != null ? _a : null
+      unmaskProtectedSpans((_a = response.corrected_spelling) != null ? _a : null, masked.spans)
     );
     if (validation.accepted && validation.corrected) {
       const latestLine = editor.getLine(line);

@@ -16,9 +16,10 @@ up: [[Atmospheres and Oceans.base]]
 $$
 \text{Schwarzschild's equation: }\frac{dI_{\nu{}}}{dl} = \rho{} k_{\nu{}}(B_{\nu{}}-I_{\nu{}})
 $$
-
+- this tells us how radiance from the slab is affected by combination of absorption and emission
 
 # Related
 
 - [[Lambert's law and absorption]]
 - [[Kirchhoff's law and emission]]
+- 
